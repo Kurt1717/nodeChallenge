@@ -1,14 +1,10 @@
 // TODO: Include packages needed for this application
 import inquirer from 'inquirer';
-import fs from 'fs';
-import generateMarkdown from './utils/generateMarkdown';
-//Creating a function to generate README
-const generateREADME = (answers) => {
-    return
-}
+import fs, { write } from 'fs';
+import generateMarkdown from './utils/generateMarkdown.js';
+
 // TODO: Create an array of questions for user input
 const questions = [
-
 {
     type: 'input',
     name: 'title',
@@ -27,35 +23,52 @@ const questions = [
 {
     type: 'input',
     name: 'usage',
-    message: 'Enter usage information:'
+    message: 'Enter usage information: '
 },
 {
     type: 'input',
     name: 'Contribution',
-    message: 'Enter contribution guidelines:'
+    message: 'Enter contribution guidelines: '
 },
 {
-type: 'input',
+    type: 'input',
     name: 'tests',
-    message: 'Enter test instructions:'
+    message: 'Enter test instructions: '
+},
+{
+    type: 'input',
+    name: 'license',
+    message: 'Choose a license for your project: ', 
+    choices: ['Boost', 'Eclipse', 'MIT','Mozilla']
+},
+{
+    type: 'input',
+    name: 'github',
+    message: 'Enter your Github username: '
+},
+{
+    type: 'input',
+    name: 'email',
+    message: 'Enter you email address: '
 }
 ];
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
-    fs.writeFile('README.md', fileName, data, (err) => {
+    fs.writeFile(fileName, data, (err) => {
         if (err){
             console.error('Error creating the file:', err);
         }   else{
-            console.log(`README.md ${fileName} has been successfully written`);
+            console.log(`${fileName} has been successfully written`);
         }
         })
     }
 
 // TODO: Create a function to initialize app
 function init() {
-    inquirer.prompt(questions).then((answers) => {
-        const readmeConent = generateMarkdown(answers);
+    inquirer.prompt(questions).then((response) => {
+       const readmeContent = generateMarkdown(response);
+       writeToFile('README.md', readmeContent);
     })
 }
 

@@ -10,7 +10,7 @@ function renderLicenseBadge(license) {
     'MIT': '[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)',
     'Mozilla': '[![License: MPL 2.0](https://img.shields.io/badge/License-MPL_2.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)'
   }
-  return badge[license];
+  return badge[license] || '';
 }
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
@@ -24,7 +24,7 @@ function renderLicenseLink(license) {
     'MIT': 'https://opensource.org/license/MIT',
     'Mozilla': 'https://opensource.org/license/MPL-2.0'
   }
-    return links[license];
+    return links[license] || '';
   }
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
