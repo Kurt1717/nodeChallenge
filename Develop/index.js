@@ -1,6 +1,6 @@
 // TODO: Include packages needed for this application
 import inquirer from 'inquirer';
-import fs, { write } from 'fs';
+import fs from 'fs';
 import generateMarkdown from './utils/generateMarkdown.js';
 
 // TODO: Create an array of questions for user input
@@ -27,7 +27,7 @@ const questions = [
 },
 {
     type: 'input',
-    name: 'Contribution',
+    name: 'Contributing',
     message: 'Enter contribution guidelines: '
 },
 {
@@ -36,7 +36,7 @@ const questions = [
     message: 'Enter test instructions: '
 },
 {
-    type: 'input',
+    type: 'list',
     name: 'license',
     message: 'Choose a license for your project: ', 
     choices: ['Boost', 'Eclipse', 'MIT','Mozilla']
@@ -69,7 +69,7 @@ function init() {
     inquirer.prompt(questions).then((response) => {
        const readmeContent = generateMarkdown(response);
        writeToFile('README.md', readmeContent);
-    })
+    });
 }
 
 // Function call to initialize app
