@@ -9,6 +9,6 @@ Ryan Fredericks
 # Technologies Used
 JavaScript, Inquirer Package
 # Video Link
-https://drive.google.com/file/d/1jSPj0x-4xhPzvADB_d5q1nqg5MdPvxDP/view?usp=sharing
+https://drive.google.com/file/d/1u9hww0EsEYcLF1ZnMZiEZHEqPsjDx8ku/view?usp=sharing
 
 
